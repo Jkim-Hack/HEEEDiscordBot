@@ -8,7 +8,7 @@ public class botEvents {
     @EventSubscriber
     public void onMessageRecieved(MessageReceivedEvent event){
         if(event.getMessage().getContent().startsWith(App.PREFIX + "test"))
-            App.sendMessage(event.getChannel(), "Wistond is GEIIIII");
+            App.sendMessage(event.getChannel(), "Wistond is Stonnned");
         if(event.getMessage().getContent().startsWith(App.PREFIX + "straights"))
             App.sendMessage(event.getChannel(),  event.getGuild().getUsersByName("Huge-Dick Horny Hitler").
                     get(0).getNicknameForGuild(event.getGuild())+" & " + event.getGuild().getUsersByName("Jizz Joey").
