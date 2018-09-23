@@ -8,6 +8,9 @@ import sx.blah.discord.handle.obj.Permissions;
 import sx.blah.discord.util.DiscordException;
 import sx.blah.discord.util.RequestBuffer;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+
 /**
  * Hello world!
  *
@@ -28,29 +31,6 @@ public class App
         client.login();
     }
 
-    public static void sendMessage(final IChannel channel, String msg){
-        RequestBuffer.request(() -> {
-            try{
-                channel.sendMessage(msg);
-            } catch (DiscordException e) {
-                System.err.println("Message could not be sent with error: ");
-                e.printStackTrace();
-            }
 
-
-        });
-    }
-    public static void sendMessageWithMention(final IChannel channel, String msg){
-        RequestBuffer.request(() -> {
-            try{
-                channel.sendMessage(msg);
-            } catch (DiscordException e) {
-                System.err.println("Message could not be sent with error: ");
-                e.printStackTrace();
-            }
-
-
-        });
-    }
 
 }
