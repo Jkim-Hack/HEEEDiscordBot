@@ -30,8 +30,16 @@ public class TaskManager {
      */
 
     public void editExistingTask(String name, String command){
-        if(command.equals("add")){
-            //tasksList.get(name).add()
+        if(command.contains("add")){
+            String[] str = command.split(" ");
+            if(str.length == 3){
+                tasksList.get(name).add(new Task(str[1], str[2]));
+            } else {
+                tasksList.get(name).add(new Task(str[1]));
+            }
+        } else if(command.contains("complete")){
+            String[] str = command.split(" ");
+            tasksList.get(name).add(new Task(str[1]));
         }
     }
 
