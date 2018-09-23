@@ -13,23 +13,25 @@ import java.net.URL;
 
 public class botEvents {
 
+    TaskManager taskManager = new TaskManager();
+
     @EventSubscriber
     public void onMessageRecieved(MessageReceivedEvent event){
         IGuild guild = event.getGuild();
         if(event.getMessage().getContent().startsWith(App.PREFIX + "test"))
             botMethods.sendMessage(event.getChannel(), "Wisone is GEIIIII");
-        if(event.getMessage().getContent().startsWith(App.PREFIX + "straights"))
+        else if(event.getMessage().getContent().startsWith(App.PREFIX + "straights"))
             botMethods.sendMessageWithMention(event.getChannel(), guild.getUserByID(188828815768813568L).mention()
                     +" will always be straight");
-        if(event.getMessage().getContent().startsWith(App.PREFIX + "gays")) {
+        else if(event.getMessage().getContent().startsWith(App.PREFIX + "gays")) {
             String str = "I can't find any ¯\\\\_(ツ)_/¯ except for Mike";
             botMethods.sendMessage(event.getChannel(), str);
         }
-        if(event.getMessage().getContent().startsWith(App.PREFIX + "createE"))
+        else if(event.getMessage().getContent().startsWith(App.PREFIX + "createE"))
             botMethods.sendMessage(event.getChannel(), "EEEE\nE\nEE\nE\nEEEE");
-        if(event.getMessage().getContent().startsWith(App.PREFIX + "stond"))
+        else if(event.getMessage().getContent().startsWith(App.PREFIX + "stond"))
             botMethods.sendMessageWithImage(event.getChannel(), "");
-        if(event.getMessage().getContent().startsWith(App.PREFIX + "rice")){
+        else if(event.getMessage().getContent().startsWith(App.PREFIX + "rice")){
             botMethods botMethods = new botMethods();
             botMethods.audioPlayer(guild);
             botMethods.joinVC(event.getChannel(), event.getAuthor());
@@ -37,7 +39,7 @@ public class botEvents {
             botMethods.queueLink(event.getChannel(), "https://www.youtube.com/watch?v=i8a3gjt_Ar0");
 
         }
-        if(event.getMessage().getContent().startsWith(App.PREFIX + "scream")){
+        else if(event.getMessage().getContent().startsWith(App.PREFIX + "scream")){
             botMethods botMethods = new botMethods();
             botMethods.audioPlayer(guild);
             botMethods.joinVC(event.getChannel(), event.getAuthor());
@@ -45,6 +47,13 @@ public class botEvents {
             botMethods.queueLink(event.getChannel(), "https://www.youtube.com/watch?v=8hmOaKlDY1Q", 4700);
 
         }
+        else if(event.getMessage().getContent().startsWith(App.PREFIX + "tasks add")){
+            botMethods.sendMessage(event.getChannel(), "Enter task name: ");
+            taskManager.addNewTaskSection(event.getMessage().getContent());
+
+
+        }
+
 
 
 

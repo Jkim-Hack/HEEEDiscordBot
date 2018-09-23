@@ -28,7 +28,6 @@ public class TaskManager {
      * @param command given command, of "add", "wipe", "complete"
      * @throws IllegalArgumentException  if bar is zero or negative
      */
-
     public void editExistingTask(String name, String command){
         if(command.contains("add")){
             String[] str = command.split(" ");
@@ -39,7 +38,13 @@ public class TaskManager {
             }
         } else if(command.contains("complete")){
             String[] str = command.split(" ");
-            tasksList.get(name).add(new Task(str[1]));
+            for (int i = 0; i <tasksList.get(name).size(); i++) {
+                if(tasksList.get(name).get(i).equals(str[1])){
+                    tasksList.get(name).remove(i);
+                }
+            }
+        } else if(command.contains("wipe")){
+            tasksList.clear();
         }
     }
 
