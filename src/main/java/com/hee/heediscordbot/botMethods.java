@@ -13,6 +13,8 @@ import sx.blah.discord.util.audio.AudioPlayer;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.*;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class botMethods {
@@ -28,15 +30,20 @@ public class botMethods {
             channel.sendMessage("You're not in a VC");
         } else {
             IVoiceChannel voiceChannel = user.getVoiceStateForGuild(channel.getGuild()).getChannel();
-            voiceChannel.join();
+            try {
+                voiceChannel.join();
+            } catch (NullPointerException e){
+                channel.sendMessage("You're not in a VC");
+            }
         }
 
     }
 
     public void queueLink(IChannel channel, final String id){
-        String name = System.getProperty("os.name").contains("Windows") ? "C:\\youtube2mp3\\youtube-dl.exe" : "youtube-dl";
+        String name = System.getProperty("os.name").contains("Windows") ? "src\\youtbe2mp3\\youtube-dl.exe"
+                : "youtube-dl";
         ProcessBuilder builder = new ProcessBuilder(name, "-q", "-f", "worstaudio",
-                "--exec", "C:\\youtube2mp3\\ffmpeg -hide_banner -nostats -loglevel panic -y -i {} -vn -q:a 5 -f mp3 pipe:1", "-o",
+                "--exec", "src\\youtbe2mp3\\ffmpeg -hide_banner -nostats -loglevel panic -y -i {} -vn -q:a 5 -f mp3 pipe:1", "-o",
                 "%(id)s", "--", id);
 
         try {
@@ -56,9 +63,9 @@ public class botMethods {
     }
 
     public void queueLink(IChannel channel, final String id, long fastfowardamt){
-        String name = System.getProperty("os.name").contains("Windows") ? "C:\\youtube2mp3\\youtube-dl.exe" : "youtube-dl";
+        String name = System.getProperty("os.name").contains("Windows") ? "src\\youtbe2mp3\\youtube-dl.exe" : "youtube-dl";
         ProcessBuilder builder = new ProcessBuilder(name, "-q", "-f", "worstaudio",
-                "--exec", "C:\\youtube2mp3\\ffmpeg -hide_banner -nostats -loglevel panic -y -i {} -vn -q:a 5 -f mp3 pipe:1", "-o",
+                "--exec", "src\\youtbe2mp3\\ffmpeg -hide_banner -nostats -loglevel panic -y -i {} -vn -q:a 5 -f mp3 pipe:1", "-o",
                 "%(id)s", "--", id);
 
         try {
@@ -78,6 +85,39 @@ public class botMethods {
 
     }
 
+    public void queueLink(IChannel channel, final String id, long starttime, long endtime){
+        String name = System.getProperty("os.name").contains("Windows") ? "src\\youtbe2mp3\\youtube-dl.exe" : "youtube-dl";
+        ProcessBuilder builder = new ProcessBuilder(name, "-q", "-f", "worstaudio",
+                "--exec", "src\\youtbe2mp3\\ffmpeg -hide_banner -nostats -loglevel panic -y -i {} -vn -q:a 5 -f mp3 pipe:1", "-o",
+                "%(id)s", "--", id);
+
+        try {
+            Process process = builder.start();
+            try {
+                //CompletableFuture.runAsync(() -> logStream(process.getErrorStream()));
+                audioPlayer(channel.getGuild()).queue(AudioSystem.getAudioInputStream(process.getInputStream()));
+                audioPlayer(channel.getGuild()).getCurrentTrack().fastForwardTo(starttime);
+                Timer timer = new Timer();
+                timer.schedule(new TimerTask()
+                {
+                    public void run()
+                    {
+                        //System.out.println("Screeeeam");
+                        audioPlayer(channel.getGuild()).clear();
+                        timer.cancel();
+                    }
+                },endtime-starttime);
+
+
+            } catch (UnsupportedAudioFileException e) {
+                e.printStackTrace();
+                process.destroyForcibly();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
     public static void sendMessage(final IChannel channel, String msg){
         RequestBuffer.request(() -> {
             try{

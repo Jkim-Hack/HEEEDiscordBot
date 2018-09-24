@@ -44,7 +44,8 @@ public class botEvents {
             botMethods.audioPlayer(guild);
             botMethods.joinVC(event.getChannel(), event.getAuthor());
             // System.out.print(new URL("https://www.youtube.com/watch?v=i8a3gjt_Ar0"));
-            botMethods.queueLink(event.getChannel(), "https://www.youtube.com/watch?v=8hmOaKlDY1Q", 4700);
+            System.out.println("Screamed");
+            botMethods.queueLink(event.getChannel(), "https://www.youtube.com/watch?v=8hmOaKlDY1Q", 4700, 8000);
 
         }
         else if(event.getMessage().getContent().startsWith(App.PREFIX + "tasks add")){
