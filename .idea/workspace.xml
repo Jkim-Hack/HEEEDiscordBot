@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="30b5626f-42dd-4394-9e34-89a9fe38a088" name="Default" comment="added in progress task manager">
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hee/heediscordbot/AppTest.java" afterPath="" />
+    <list default="true" id="30b5626f-42dd-4394-9e34-89a9fe38a088" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hee/heediscordbot/botMethods.java" afterPath="$PROJECT_DIR$/src/main/java/com/hee/heediscordbot/botMethods.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -52,8 +53,8 @@
       <file leaf-file-name="botMethods.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/hee/heediscordbot/botMethods.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="99" column="42" lean-forward="true" selection-start-line="99" selection-start-column="42" selection-end-line="99" selection-end-column="42" />
+            <state relative-caret-position="261">
+              <caret line="97" column="113" lean-forward="true" selection-start-line="97" selection-start-column="113" selection-end-line="97" selection-end-column="113" />
               <folding />
             </state>
           </provider>
@@ -101,9 +102,9 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/com/hee/heediscordbot/App.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hee/heediscordbot/botMethods.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hee/heediscordbot/botEvents.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hee/heediscordbot/TaskManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hee/heediscordbot/botMethods.java" />
       </list>
     </option>
   </component>
@@ -326,7 +327,14 @@
       <option name="project" value="LOCAL" />
       <updated>1537682891068</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added in progress task manager">
+      <created>1537757437878</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1537757437878</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -841,8 +849,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hee/heediscordbot/botMethods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="99" column="42" lean-forward="true" selection-start-line="99" selection-start-column="42" selection-end-line="99" selection-end-column="42" />
+        <state relative-caret-position="261">
+          <caret line="97" column="113" lean-forward="true" selection-start-line="97" selection-start-column="113" selection-end-line="97" selection-end-column="113" />
           <folding />
         </state>
       </provider>

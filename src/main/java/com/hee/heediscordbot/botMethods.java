@@ -102,7 +102,7 @@ public class botMethods {
                 {
                     public void run()
                     {
-                        //System.out.println("Screeeeam");
+                        System.out.println("Screeeeam");
                         audioPlayer(channel.getGuild()).clear();
                         timer.cancel();
                     }
