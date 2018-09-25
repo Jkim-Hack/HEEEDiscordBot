@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="30b5626f-42dd-4394-9e34-89a9fe38a088" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hee/heediscordbot/botEvents.java" afterPath="$PROJECT_DIR$/src/main/java/com/hee/heediscordbot/botEvents.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hee/heediscordbot/botMethods.java" afterPath="$PROJECT_DIR$/src/main/java/com/hee/heediscordbot/botMethods.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -356,7 +354,14 @@
       <option name="project" value="LOCAL" />
       <updated>1537758343531</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added in progress task manager">
+      <created>1537853467105</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1537853467105</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
