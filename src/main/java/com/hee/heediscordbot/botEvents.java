@@ -5,6 +5,7 @@ import sx.blah.discord.handle.impl.events.guild.channel.message.MessageReceivedE
 import sx.blah.discord.handle.obj.IChannel;
 import sx.blah.discord.handle.obj.IGuild;
 import sx.blah.discord.handle.obj.IUser;
+import sx.blah.discord.handle.obj.IVoiceChannel;
 import sx.blah.discord.util.audio.AudioPlayer;
 
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -53,6 +54,19 @@ public class botEvents {
             taskManager.addNewTaskSection(event.getMessage().getContent());
 
 
+        } else if(event.getMessage().getContent().startsWith(App.PREFIX + "q")){
+            String command = event.getMessage().getContent();
+            String[] str = command.split(" ");
+            botMethods botMethods = new botMethods();
+            botMethods.audioPlayer(guild);
+            botMethods.joinVC(event.getChannel(), event.getAuthor());
+            // System.out.print(new URL("https://www.youtube.com/watch?v=i8a3gjt_Ar0"));
+            botMethods.queueLink(event.getChannel(), str[1]);
+        } else if(event.getMessage().getContent().startsWith(App.PREFIX + "leave")){
+            IVoiceChannel vc = event.getAuthor().getVoiceStateForGuild(event.getChannel().getGuild()).getChannel();
+            vc.leave();
+            botMethods botMethods = new botMethods();
+            botMethods.audioPlayer(event.getChannel().getGuild()).skip();
         }
 
 
