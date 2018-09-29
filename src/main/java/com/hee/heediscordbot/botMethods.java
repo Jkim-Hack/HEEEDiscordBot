@@ -42,7 +42,7 @@ public class botMethods {
     public void queueLink(IChannel channel, final String id){
         String name = System.getProperty("os.name").contains("Windows") ? "src\\youtbe2mp3\\youtube-dl.exe"
                 : "youtube-dl";
-        ProcessBuilder builder = new ProcessBuilder(name, "-q", "-f", "bestaudio",
+        ProcessBuilder builder = new ProcessBuilder(name, "-q", "-f", "worstaudio",
                 "--exec", "src\\youtbe2mp3\\ffmpeg -hide_banner -nostats -loglevel panic -y -i {} -vn -q:a 5 -f mp3 pipe:1", "-o",
                 "%(id)s", "--", id);
 
@@ -64,7 +64,7 @@ public class botMethods {
 
     public void queueLink(IChannel channel, final String id, long fastfowardamt){
         String name = System.getProperty("os.name").contains("Windows") ? "src\\youtbe2mp3\\youtube-dl.exe" : "youtube-dl";
-        ProcessBuilder builder = new ProcessBuilder(name, "-q", "-f", "bestaudio",
+        ProcessBuilder builder = new ProcessBuilder(name, "-q", "-f", "worstaudio",
                 "--exec", "src\\youtbe2mp3\\ffmpeg -hide_banner -nostats -loglevel panic -y -i {} -vn -q:a 5 -f mp3 pipe:1", "-o",
                 "%(id)s", "--", id);
 

@@ -68,8 +68,21 @@ public class botEvents {
             botMethods botMethods = new botMethods();
             botMethods.audioPlayer(event.getChannel().getGuild()).skip();
         }
+        else if(event.getMessage().getContent().startsWith("!" + "f"))
+            botMethods.sendMessage(event.getChannel(), "FFFFFF\nF\nFFF\nF\nF");
+        else if(event.getMessage().getContent().contains("gay")||event.getMessage().getContent().contains("GAY"))
+            botMethods.sendMessage(event.getChannel(), "straight");
+        else if(event.getMessage().getContent().startsWith("!" + "rnd")){
+            String[] input = event.getMessage().getContent().split(" ");
+            long[] ints = new long[2];
+            ints[0] = Long.parseLong(input[1]);
+            ints[1] = Long.parseLong(input[2]);
+            long result = (long)(Math.random() * ints[1]) + ints[0];
+
+            botMethods.sendMessage(event.getChannel(), "" + result);
 
 
+        }
 
 
     }
